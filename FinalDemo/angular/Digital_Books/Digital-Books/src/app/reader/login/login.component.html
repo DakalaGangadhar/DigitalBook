@@ -1,0 +1,121 @@
+<div *ngIf="readerGridFlag;else grid_content">
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-xl-6 col-md-2 col-sm-1">
+          <div *ngIf="readerTemplate;else other_content">
+            <div class="bg-image p-5 text-center shadow-1-strong rounded mb-3 text-white"
+            style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');">
+  
+            <h4 class="card-title mb-3 text-center">Search Book</h4>
+            <div class="card-body mx-auto" style="max-width: 400px;">
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i style="width: 75px;">Category</i> </span>
+                </div>
+               <!-- <input [(ngModel)]="ReaderReaderModel.category" class="form-control" placeholder="Enter Category" type="text">-->
+                <select class="form-select" [(ngModel)]="ReaderReaderModel.category" placeholder="Select Category"
+                aria-label="Default select example">
+                <option selected>Select Category</option>
+                <option value="1">Agriculture</option>
+                <option value="2">Art & Culture</option>
+                <option value="3">Commerce</option>
+                <option value="4">Communications & IT</option>
+                <option value="5">Defence</option>
+                <option value="6">Education</option>
+                <option value="7">Environment & Forest</option>
+                <option value="8">Finance & Taxes</option>
+                <option value="9">Food & Public Distribution</option>
+                <option value="10">Governance & Administration</option>
+                <option value="11">Health & Family Welfare</option>
+                <option value="12">Industries</option>
+                <option value="13">Infrastructure</option>
+                <option value="14">Labour & Employment</option>
+                <option value="15">Law & Justice</option>
+                <option value="16">Science & Technology</option>
+                <option value="17">Social Development</option>
+                <option value="18">Travel & Tourism</option>
+                <option value="19">Sports</option>
+                <option value="20">History</option>
+              </select>
+              </div> <!-- form-group end.// -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i style="width: 75px;">Author</i> </span>
+                </div>
+                <input class="form-control" [(ngModel)]="ReaderReaderModel.author" placeholder="Enter Author" type="text">
+              </div><!-- form-group// -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i style="width: 75px;">Publisher</i> </span>
+                </div>
+                <input [(ngModel)]="ReaderReaderModel.publisher" class="form-control" placeholder="Enter Publisher" type="text">
+              </div>
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"> <i style="width: 75px;">Price</i> </span>
+                </div>
+                <input [(ngModel)]="ReaderReaderModel.price" class="form-control" placeholder="Enter price" type="number">
+              </div> <!-- form-group// -->
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" (click)="SearchByReader()">Search</button>
+              </div> <!-- form-group// -->
+            </div>
+  
+          </div>
+        </div>
+        
+        <ng-template #other_content>
+          <img src="/assets//d_g.gif" alt="Dital Book" style="width: 575px; height: 343px;">
+        </ng-template>
+          
+        </div>
+        <!--Reader and Author login-->
+        <div class="col-lg-6 col-xl-46 col-md-2 col-sm-1">
+          <div class="card bg-light mt-6 ml-8 ">  
+           
+            <h4 class="card-title mt-5 text-center">Signin Account</h4>
+            <form [formGroup]="UserModel.formUserGroup">
+              <article class="card-body mx-auto" style="max-width: 400px; height: 256px;">
+              <div class="form-group mt-1">               
+                <input  [(ngModel)]="UserModel.Username" formControlName="UsernameControl" class="form-control" placeholder="Enter Email" type="email">
+                <span class="validspan" *ngIf="!UserModel.formUserGroup.controls['UsernameControl'].valid && 
+                UserModel.formUserGroup.controls['UsernameControl']?.touched"> Please enter a valid email</span>
+              </div>  <!-- form-group end.// -->
+              <div class="form-group mt-1">                
+                <input class="form-control"  [(ngModel)]="UserModel.Password" formControlName="UserPasswordControl" placeholder="Enter password" type="password">
+                <span class="validspan" *ngIf="!UserModel.formUserGroup.controls['UserPasswordControl'].valid && 
+                UserModel.formUserGroup.controls['UserPasswordControl']?.touched"> Please enter a valid email</span>
+              </div> <!-- form-group// -->
+              <div class="form-group mt-2">
+                <button type="button" class="btn btn-primary" (click)="loginUser()" [disabled]="!(UserModel.formUserGroup.valid)">Login</button>
+                <button type="button" class="btn btn-primary" (click)="redirecttoregisterUser()">Register</button>
+              </div> <!-- form-group// -->
+          </article>
+        </form>
+        </div>
+    
+        </div>
+      </div>
+  </div>
+</div>
+
+<ng-template #grid_content>
+  <div class="container">
+    <div class="form-group">
+      <button class="btn btn-success btn-lg float-right" type="submit" (click)="readerSearchBooks()">
+        Search Books
+      </button>
+    </div>
+  </div>
+  <app-reader-grid
+  [grid-columns]="[{'colName':'Id'},{'colName':'AuthorId'},{'colName':'Title'},{'colName':'Author'},{'colName':'Price'},
+  {'colName':'Category'},{'colName':'Publisher'},{'colName':'Releasedate'},{'colName':'Active'},
+  {'colName':'Image'},{'colName':'Contentdata'}]"
+    [grid-data]="ReaderModels" (grid-selected)="EditReader($event)" (grid-deleted)="DeleteAuthor($event)"
+    [readereditbutton]="readereditbutton" [readerdeletebutton]="readerdeletebutton" (grid-bookbuy)="ReaderBuyABook($event)"></app-reader-grid>
+</ng-template>
+
+
+<!--(grid-bookbuy)="ReaderBuyABook($event)"-->
+
+ 

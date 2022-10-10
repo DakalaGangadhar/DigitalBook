@@ -1,0 +1,102 @@
+<section class="h-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div  class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10 col-xl-8">
+                <div class="card" style="border-radius: 10px;">
+                    <div class="card-header px-4 py-5">
+                        <h5 class="text-muted mb-0">Thanks for your Order, <span style="color: #a8729a;">{{name}}</span>!
+                        </h5>
+                    </div>
+                    <table>
+                        <tr *ngFor="let order of orderData">
+                            <div class="card-body p-4">
+                                <div class="card shadow-0 border mb-4">
+                                    <div class="card-body">                             
+                                        <div class="row">
+                                            <span><em>Title: </em>{{order.title}}</span>
+                                            <div class="col-md-2">
+                                                <img src="{{imageURL}}{{order.image}}"
+                                                    class="img-fluid" alt="Digital Books" style="height: 45px;width: 60px;">
+                                            </div>
+                                            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                                <span class="price"><small>Author</small>{{order.author}}</span>
+                                            </div>
+                                            <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
+                                                <span class="price"><small>Category</small>{{order.category}}</span>
+                                            </div>
+                                            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                                <span class="price"><small>Publisher</small>{{order.publisher}}</span>
+                                            </div>                                           
+                                            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                                <span class="price"><small>Price</small><em class="fa fa-inr">{{order.price}}</em></span>
+                                            </div>
+                                        </div>
+                                        <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                                        <div *ngIf="order.orderactive;else orderactive_content">
+                                            <div class="row d-flex align-items-center">
+                                                <div class="col-md-2">
+                                                    <p class="text-muted mb-0 small"></p>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                        <div *ngIf="order.invoiceflag;else invoice_button">
+                                                            <button class="btn btn-secondary me-md-2" type="button" (click)="viewUnInvoice(order)">Close Invoice</button>
+                                                        </div>                                                        
+                                                        <ng-template #invoice_button>
+                                                            <button class="btn btn-success me-md-2" type="button" (click)="viewInvoice(order)">View Invoice</button>
+                                                        </ng-template>                                                        
+                                                        <button class="btn btn-warning" type="button" (click)="cancelOrder(order)">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <ng-template #orderactive_content>
+                                            <div class="row d-flex align-items-center">
+                                                <div class="col-md-12">
+                                                    <p class="text-muted mb-0 small">Refund within 24 hours of payment</p>
+                                                </div>
+                                               
+                                            </div>
+                                        </ng-template>
+                                        <div *ngIf="order.invoiceflag;else invoice_content">
+                                            <table>
+                                                <tr>
+                                                    <td>Author:</td>
+                                                    <td>{{order.author}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Price:</td>
+                                                    <td>{{order.price}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Delivery:</td>
+                                                    <td>free</td>
+                                                </tr>                                                
+                                                <tr>
+                                                    <td><b>Total:</b></td>
+                                                    <td>{{order.price}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>                                        
+                                        <ng-template #invoice_content>
+
+                                        </ng-template>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </tr>
+                        <tr *ngIf="orderData?.length===0">
+                            <td colspan="8">
+                                No books found
+                            </td>
+                        </tr>
+                    </table>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

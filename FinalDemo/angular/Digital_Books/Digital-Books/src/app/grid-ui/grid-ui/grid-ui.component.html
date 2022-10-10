@@ -1,0 +1,61 @@
+
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Books Details</h2></div>                    
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th *ngFor="let col of gridColumns">
+                            {{col.colName}}
+                       </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let colObj of gridData;index as i">
+                           <!-- <td *ngFor="let col of gridColumns">
+                            {{colObj[col.colName]}
+                            
+                             </td>-->
+                             <td>{{i+1}}</td>
+                             <td>{{colObj.id}}</td>
+                             <td>{{colObj.title}}</td>
+                             <td>{{colObj.author}}</td>
+                             <td>{{colObj.price}}</td>
+                             <td>{{colObj.category}}</td>
+                             <td>{{colObj.publisher}}</td>
+                             <td>{{colObj.releasedate}}</td> 
+                             <td>{{colObj.active}}</td>                        
+                             <td>
+                                <img style="width: 30px;height: 30px;" src="{{imageURL}}{{colObj.image}}">
+                                
+                                </td>
+                            <td>
+                                <textarea   placeholder="Content"  type="text">{{colObj.contentdata}}</textarea>
+                            </td>
+                            
+                             <td [class]="displayNone">
+                                <a class="edit bg-secondary border border-dark rounded" title="Edit" data-toggle="tooltip" (click)="selectedGrid(colObj)">edit</a>
+                                <a class="delete bg-warning border border-dark rounded" title="Delete" data-toggle="tooltip" (click)="deleteGrid(colObj)">delete</a>
+                                <div *ngIf="colObj.active;else other_content ">
+                                    <a class="block bg-secondary border border-dark rounded" title="block" data-toggle="tooltip" (click)="blockGrid(colObj)">block</a>
+                                </div>                                
+                                <ng-template #other_content>
+                                    <a class="unblock bg-primary border border-dark rounded" title="unblock" data-toggle="tooltip" (click)="unblockGrid(colObj)">unblock</a>
+                                </ng-template>
+                            </td> 
+                         </tr>
+                         <tr *ngIf="gridData?.length===0">
+                             <td colspan="8">
+                                 No books found
+                             </td>
+                         </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>     

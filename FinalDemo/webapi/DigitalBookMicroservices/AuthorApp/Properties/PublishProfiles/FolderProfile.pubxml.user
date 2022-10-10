@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\cogdotnet1697\Desktop\author</_PublishTargetUrl>
+    <History>True|2022-10-07T10:27:19.8603480Z;True|2022-10-07T15:54:06.8891400+05:30;True|2022-10-07T15:50:44.0754326+05:30;True|2022-10-07T15:47:20.4694713+05:30;True|2022-10-07T15:43:26.2498857+05:30;True|2022-10-07T15:37:13.3167661+05:30;True|2022-10-07T15:13:25.5761776+05:30;True|2022-10-07T14:20:33.2527859+05:30;True|2022-10-07T12:10:25.3165751+05:30;True|2022-10-07T11:56:30.4733747+05:30;True|2022-10-07T11:44:54.2773031+05:30;True|2022-10-07T11:35:26.8883667+05:30;</History>
+  </PropertyGroup>
+</Project>

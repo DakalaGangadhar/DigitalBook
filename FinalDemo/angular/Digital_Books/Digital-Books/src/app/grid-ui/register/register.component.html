@@ -1,0 +1,39 @@
+
+<div class="container">
+  <form [formGroup]="RegisterModel.formRegisterGroup">
+    <div class="row">
+      <div class="col-lg-6 col-xl-6 col-md-1 col-sm-1">
+        <img src="/assets/Ebooks.gif" alt="Dital Book" style="width: 575px; height: 343px;"> 
+      </div>
+      <div class="col-lg-6 col-xl-6 col-md-1 col-sm-1">
+        <div class="card bg-light">  
+          <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <article class="card-body mx-auto" style="max-width: 400px;">
+            <div class="form-group">             
+              <input [(ngModel)]="RegisterModel.Username" formControlName="UsernameControl" class="form-control" placeholder="Enter Email" type="email">              
+              <span class="validspan" *ngIf="!RegisterModel.formRegisterGroup.controls['UsernameControl'].valid && 
+              RegisterModel.formRegisterGroup.controls['UsernameControl']?.touched"> Please enter a valid email</span>
+            </div>  <!-- form-group end.// -->
+            <div class="form-group">             
+              <input class="form-control" [(ngModel)]="RegisterModel.Password" formControlName="UserPasswordControl" placeholder="Create password" type="password">
+              <span class="validspan" *ngIf="!RegisterModel.formRegisterGroup.controls['UserPasswordControl'].valid && 
+              RegisterModel.formRegisterGroup.controls['UserPasswordControl']?.touched"> Please enter a strong password</span>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+            <input class="form-control" [(ngModel)]="RegisterModel.Password" formControlName="UserPasswordControl" placeholder="Repeat password" type="password">
+            <span class="validspan" *ngIf="!RegisterModel.formRegisterGroup.controls['UserPasswordControl'].valid && 
+              RegisterModel.formRegisterGroup.controls['UserPasswordControl']?.touched"> Please enter a strong password</span>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <button type="submit" [disabled]="!(RegisterModel.formRegisterGroup.valid)" class="btn btn-primary btn-block" (click)="registerUser()"> Create Account </button>
+            </div> <!-- form-group// -->
+        </article>
+            <p class="text-center">Have an account? <a href="" (click)="agianLogin()">Log In</a> </p>
+       
+      </div>
+  
+      </div>
+    </div>
+  </form>  
+  
+  </div>

@@ -1,0 +1,154 @@
+<div *ngIf="authorFlag;else other_content">
+  <div class="container">
+
+    <div class="row">
+      <!--<div class="col-lg-6 col-xl-6 col-md-1 col-sm-1">
+        <img src="/assets/estore.jpg" alt="Dital Book" style="width: 570px; height: 596px;">
+      </div>-->
+      <div class="bg-image" style="
+    background-image: url('/assets/estore.jpg');
+    width: 570px; height: 596px;;
+  ">
+        <div class="mask">
+
+          <div class="text-left">
+            <button type="button" class="btn btn-warning" (click)="dirCreateBooksdiv()">All My Books</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-xl-6 col-md-1 col-sm-1">
+
+        <div class="card bg-light">
+          <h4 class="card-title mt-3 text-center">Create Book</h4>
+          <article class="card-body mx-auto" style="max-width: 400px;">
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;">Title</i> </span>
+              </div>
+              <input [(ngModel)]="AuthorModel.title" class="form-control" placeholder="Enter Title" type="text">
+            </div> <!-- form-group end.// -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;">Author</i> </span>
+              </div>
+              <input [(ngModel)]="AuthorModel.author" class="form-control" placeholder="Enter Author" type="text">
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;">Catogory</i> </span>
+              </div>
+              <!-- <input [(ngModel)]="AuthorModel.category" class="form-control" placeholder="Enter Catogory" type="text">-->
+              <select class="form-select" [(ngModel)]="AuthorModel.category" placeholder="Select Category"
+                aria-label="Default select example">
+                <option selected>Select Category</option>
+                <option value="1">Agriculture</option>
+                <option value="2">Art & Culture</option>
+                <option value="3">Commerce</option>
+                <option value="4">Communications & IT</option>
+                <option value="5">Defence</option>
+                <option value="6">Education</option>
+                <option value="7">Environment & Forest</option>
+                <option value="8">Finance & Taxes</option>
+                <option value="9">Food & Public Distribution</option>
+                <option value="10">Governance & Administration</option>
+                <option value="11">Health & Family Welfare</option>
+                <option value="12">Industries</option>
+                <option value="13">Infrastructure</option>
+                <option value="14">Labour & Employment</option>
+                <option value="15">Law & Justice</option>
+                <option value="16">Science & Technology</option>
+                <option value="17">Social Development</option>
+                <option value="18">Travel & Tourism</option>
+                <option value="19">Sports</option>
+                <option value="20">History</option>
+              </select>
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;">Image</i> </span>
+              </div>
+              <!--<input [(ngModel)]="AuthorModel.image" class="form-control" placeholder="Enter Image" type="text">-->
+              <!--<label for="formFileDisabled" class="form-label">example</label>-->
+              <input [(ngModel)]="AuthorModel.image" class="form-control" type="file" (change)="onFileChanged($event)">
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;">Price</i> </span>
+              </div>
+              <input [(ngModel)]="AuthorModel.price" class="form-control" placeholder="Enter Price" type="number">
+              <br>
+              <br>
+              <!--<p style="color: red;" [hidden]="!(hasError('pattern','UsernameControl'))">Please enter valid username</p>-->
+              <!-- <span style="color: red;" [hidden]="!(hasError('required','CustomerCodeControl'))">Please enter valid username</span>-->
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;">Publisher</i> </span>
+              </div>
+              <input [(ngModel)]="AuthorModel.publisher" class="form-control" placeholder="Enter Publisher" type="text">
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;">Active</i> </span>
+              </div>
+              <select class="form-select" [(ngModel)]="AuthorModel.active" aria-label="Default select example">
+                <option selected>Select Active</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div> <!-- form-group end.// -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i style="width: 60px;resize: none;">Content</i> </span>
+              </div>
+              <textarea [(ngModel)]="AuthorModel.contentdata" class="form-control" placeholder="Enter Content"
+                type="text"></textarea>
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group">
+             
+              <div *ngIf="isEdit;else other_content">
+                <button type="submit" class="btn btn-primary btn-block" (click)="CreateBooks($event)"> Update Book
+                </button>
+            </div>            
+            <ng-template #other_content>
+              <button type="submit" class="btn btn-primary btn-block" (click)="CreateBooks($event)"> Create Book
+              </button>
+            </ng-template>
+            </div> <!-- form-group// -->
+          </article>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<ng-template #other_content>
+  <div class="container">
+    <div class="form-group">
+      <button class="btn btn-success btn-lg float-right" type="submit" (click)="dirAddBookspage()">
+        Add Books
+      </button>
+    </div>
+  </div>
+  <div>
+    <app-grid-ui [grid-columns]="[{'colName':'Id'},{'colName':'AuthorId'},{'colName':'Title'},{'colName':'Author'},{'colName':'Price'},
+    {'colName':'Category'},{'colName':'Publisher'},{'colName':'Releasedate'}, {'colName':'Active'},
+    {'colName':'Image'},{'colName':'Contentdata'}]" [grid-data]="AuthorModels" [readereditbutton]="readereditbutton"
+      [readerdeletebutton]="readerdeletebutton" (grid-selected)="EditAuthor($event)"
+      (grid-deleted)="DeleteAuthor($event)" (book-block)="BlockGrid($event)" (book-unblock)="UnBlockGrid($event)">
+    </app-grid-ui>
+  </div>
+</ng-template>

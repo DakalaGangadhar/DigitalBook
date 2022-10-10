@@ -1,0 +1,12 @@
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\bin\Release\netcoreapp3.1\win-x64\CommonData.deps.json
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\bin\Release\netcoreapp3.1\win-x64\CommonData.runtimeconfig.json
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\bin\Release\netcoreapp3.1\win-x64\CommonData.runtimeconfig.dev.json
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\bin\Release\netcoreapp3.1\win-x64\CommonData.dll
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\bin\Release\netcoreapp3.1\win-x64\CommonData.pdb
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\obj\Release\netcoreapp3.1\win-x64\CommonData.GeneratedMSBuildEditorConfig.editorconfig
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\obj\Release\netcoreapp3.1\win-x64\CommonData.AssemblyInfoInputs.cache
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\obj\Release\netcoreapp3.1\win-x64\CommonData.AssemblyInfo.cs
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\obj\Release\netcoreapp3.1\win-x64\CommonData.csproj.CoreCompileInputs.cache
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\obj\Release\netcoreapp3.1\win-x64\CommonData.dll
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\obj\Release\netcoreapp3.1\win-x64\CommonData.pdb
+D:\H_T_L\Webapi\DigitalBookMicroservices\CommonData\obj\Release\netcoreapp3.1\win-x64\CommonData.genruntimeconfig.cache

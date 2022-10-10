@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\cogdotnet1697\Desktop\reader-publish</_PublishTargetUrl>
+    <History>True|2022-10-09T05:58:32.6062211Z;True|2022-10-08T12:40:05.1890281+05:30;True|2022-10-08T11:38:45.4170260+05:30;True|2022-10-06T17:21:24.5479350+05:30;</History>
+  </PropertyGroup>
+</Project>
