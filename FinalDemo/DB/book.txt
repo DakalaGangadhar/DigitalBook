@@ -1,0 +1,31 @@
+USE [digitalbooksDB]
+GO
+
+/****** Object:  Table [dbo].[book]    Script Date: 05-11-2022 21:31:52 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[book](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[title] [nvarchar](max) NULL,
+	[author] [nvarchar](max) NULL,
+	[image] [nvarchar](max) NULL,
+	[price] [decimal](18, 2) NULL,
+	[active] [bit] NULL,
+	[contentdata] [nvarchar](max) NULL,
+	[publisher] [nvarchar](max) NULL,
+	[releasedate] [datetime] NULL,
+	[authorid] [int] NULL,
+	[authormail] [nvarchar](max) NULL,
+	[categoryid] [int] NULL,
+ CONSTRAINT [PK_book] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
